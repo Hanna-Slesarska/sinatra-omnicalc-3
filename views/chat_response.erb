@@ -1,0 +1,27 @@
+<dl>
+<% cookies.each do |key, value| %>
+    <dt>user</dt>
+    <dd><%= key.gsub(/[^0-9A-Za-z]/, ' ').gsub("3F", "?") %></dd>
+    <!--<dd></dd>-->
+    
+    <dt>assistant</dt>
+    <dd><%= value.gsub("+", " ").gsub(/[^0-9A-Za-z]/, ' ').gsub("2C", "") %></dd>
+    <!--<dd></dd>-->
+    
+    <% end %>
+
+</dl>
+
+<form action="/add_message_to_chat" method="post" data-dashlane-rid="1b256b2474852d41" data-form-type="other">
+  <label for="new_message_field">You:</label>
+  
+  <input id="new_message_field" type="text" name="user_message" placeholder="Enter a message...." data-dashlane-rid="11081e306569dc9c" data-form-type="other">
+
+  <button data-dashlane-label="true" data-dashlane-rid="9e79526cbe21c018" data-form-type="other">Send</button>
+</form>
+
+<hr>
+
+<form action="/clear_chat" method="post">
+  <button>Clear chat history</button>
+</form>
